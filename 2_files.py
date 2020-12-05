@@ -11,12 +11,23 @@
 5. Сохраните результат в файл referat2.txt
 """
 
+import re
+
+
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    with open('referat.txt', 'r', encoding='utf-8') as f, open('referat2.txt', 'w') as ref2:
+    	file_content = f.read()
+    	print(len(file_content))
+
+    	splited_content = re.split('\n{1,}| ', file_content)
+    	print(len(splited_content))
+
+    	without_dots = file_content.replace('.','!')
+    	ref2.write(without_dots)
+
 
 if __name__ == "__main__":
     main()
+
+
+
